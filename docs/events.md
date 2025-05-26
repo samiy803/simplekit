@@ -50,6 +50,21 @@ Four translators are provided:
 Applications can add their own translators using `addSKEventTranslator()` in
 both runtime modes.
 
+### Writing a translator
+
+An event translator is an object with an `update(fundamentalEvent)` method. The method is called for every fundamental event and may return a newly constructed `SKEvent`. Translators run in the order they are registered which makes it possible to chain behaviours or override defaults.
+
+```ts
+const wheelTranslator = {
+  update(fe) {
+    if (fe.type === 'wheel') {
+      return new SKEvent('wheel', fe.timeStamp, fe.deltaY);
+    }
+  }
+};
+addSKEventTranslator(wheelTranslator);
+```
+
 ## Dispatching Events
 
 In **canvas mode** all translated events are delivered to the global event
@@ -80,3 +95,4 @@ Widgets may emit their own high level events. For example `SKButton` emits an
 `action` event when clicked and `SKTextfield` emits `textchanged` whenever its
 text content updates. These events flow through the same dispatch mechanism and
 can be observed using `addEventListener` on the widget instance.
+
