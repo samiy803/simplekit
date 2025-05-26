@@ -84,7 +84,7 @@ const config: Config = {
                         },
                         {
                             label: "Course Website",
-                            href: "https://student.cs.uwaterloo.ca/~",
+                            href: "https://student.cs.uwaterloo.ca/~cs349/1255",
                         },
                     ],
                 },
