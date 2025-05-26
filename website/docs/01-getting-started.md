@@ -84,9 +84,3 @@ The repository includes a small build script powered by [tsup](https://github.co
 - `npm test` – runs the Jest test suite found under `__tests__/`.
 
 You rarely need to build when using `npm link` or the submodule approach, but it is useful when publishing the package or running tests.
-
-## Running the examples
-
-The `examples/` folder contains small demos that showcase different parts of the toolkit. After cloning the repository run `npm start` and open the desired HTML file in your browser. Any changes to the source or the example code will trigger an automatic rebuild.
-
-If you add your own example remember to include the TypeScript files under `examples/` so the build script can compile them.
