@@ -68,3 +68,17 @@ You may provide your own translators using `addSKEventTranslator(translator)` wh
 4. SimpleKit runs an internal loop that translates events, dispatches them to your listener, then calls your animation and draw callbacks every frame.
 
 Canvas mode does not handle any widgets or layout; you are free to draw whatever you like to the canvas using the provided graphics context.
+
+## Customising the Canvas
+
+`startSimpleKit` automatically inserts a canvas element that fills the browser window. The helper in `common.ts` sets a default background colour of `whitesmoke`. If you want to style the canvas further simply access the element returned by `startSimpleKit` and adjust its CSS properties:
+
+```ts
+const info = startSimpleKit();
+if (info) {
+  const canvas = document.querySelector('canvas')!;
+  canvas.style.border = '1px solid black';
+}
+```
+
+The canvas resizes with the window so your drawing code should rely on `gc.canvas.width` and `gc.canvas.height` each frame.

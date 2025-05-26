@@ -55,11 +55,41 @@ To import, you can just use a relative path like:
 
 Or, even better, you can setup your build environment to have a path to the simplekit folder. For example in Vite:
 
-- << (Vite config setup TBD) explain how to setup paths in vite config and typescript config.>>
+```ts
+// vite.config.ts
+import { defineConfig } from 'vite';
+import tsconfigPaths from 'vite-tsconfig-paths';
+
+export default defineConfig({
+  plugins: [tsconfigPaths()],
+  resolve: {
+    alias: {
+      simplekit: path.resolve(__dirname, './simplekit/src'),
+    },
+  },
+});
+```
+
+And in `tsconfig.json`:
+
+```json
+{
+  "compilerOptions": {
+    "paths": {
+      "simplekit/*": ["simplekit/src/*"]
+    }
+  }
+}
+```
 
 Git doesn't automatically init and update submodules automatically, so you'll need to do it on command line the first time you clone your main repo.
 
-- << git cloning instructions TBD >>
+```bash
+git clone --recursive https://github.com/your/repo.git
+# or if you forgot --recursive
+git submodule update --init --recursive
+```
+
 
 
 
