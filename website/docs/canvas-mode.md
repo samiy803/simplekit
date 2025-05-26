@@ -82,3 +82,60 @@ if (info) {
 ```
 
 The canvas resizes with the window so your drawing code should rely on `gc.canvas.width` and `gc.canvas.height` each frame.
+
+## Graphics Context Methods
+
+Below is a summary of the key methods available on the `CanvasRenderingContext2D` used in canvas mode. For the full API, refer to the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D).
+
+### Saving and State
+
+- `save()` and `restore()` push and pop the current drawing state.
+- `lineWidth`, `lineCap`, `lineJoin`, `miterLimit` control stroke
+  appearance.
+- `strokeStyle`, `fillStyle` set colours or gradients.
+- `setLineDash(segments)` / `getLineDash()` for dashed lines.
+- `globalAlpha`, `globalCompositeOperation` manage compositing.
+
+### Transformations
+
+- `translate(x, y)`
+- `rotate(angle)`
+- `scale(x, y)`
+- `transform(m11, m12, m21, m22, dx, dy)`
+- `setTransform(...)` and `resetTransform()`
+
+### Path Construction
+
+- `beginPath()` starts a new path.
+- `moveTo(x, y)` sets the start of a sub-path.
+- `lineTo(x, y)` draws a line.
+- `rect(x, y, w, h)` or `roundRect(x, y, w, h, radii)` for rectangles.
+- `arc(x, y, r, start, end, anticlockwise?)`
+- `arcTo(x1, y1, x2, y2, r)`
+- `bezierCurveTo(cp1x, cp1y, cp2x, cp2y, x, y)`
+- `quadraticCurveTo(cpx, cpy, x, y)`
+- `ellipse(x, y, rx, ry, rot, start, end, anticlockwise?)`
+- `closePath()` closes the current sub-path.
+- `fill()` / `stroke()` render the path.
+- `clip()` sets the clipping region.
+- `fillRect(x, y, w, h)` and `strokeRect(x, y, w, h)` draw rectangles directly.
+- `clearRect(x, y, w, h)` clears a region.
+
+### Text Drawing
+
+- `font` – CSS font string used for text rendering.
+- `textAlign` – alignment relative to the provided x position.
+- `textBaseline` – vertical alignment within the line box.
+- `direction` – text direction for languages like RTL scripts.
+- `fillText(text, x, y, maxWidth?)`
+- `strokeText(text, x, y, maxWidth?)`
+- `measureText(text)`
+
+### Images and Gradients
+
+- `drawImage(image, ...args)` draws an HTML image, canvas or video.
+- `createPattern(image, repetition)` creates a repeating fill style.
+- `createLinearGradient(x0, y0, x1, y1)`
+- `createRadialGradient(x0, y0, r0, x1, y1, r1)`
+- `createImageData(w, h)`, `getImageData(x, y, w, h)`,
+  `putImageData(data, x, y)` for pixel level access.
