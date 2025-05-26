@@ -64,6 +64,6 @@ The core library is intentionally small so that students can read through the co
 
 ## See Also
 
-- [canvas-mode.md](./canvas-mode.md)
-- [events.md](./events.md)
-- [getting-started.md](./getting-started.md)
+- [Canvas Mode](./canvas-mode.md)
+- [Events](./events.md)
+- [Getting Started](./01-getting-started.md)
